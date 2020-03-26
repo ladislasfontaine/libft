@@ -2,17 +2,17 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	unsigned int	i;
-	unsigned int	src_len;
+	size_t	i;
 
-	src_len = ft_strlen(src);
 	i = 0;
+	while (src[i] && i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
 	while (i < len)
 	{
-		if (i < src_len)
-			dst[i] = src[i];
-		else
-			dst[i] = '\0';
+		dst[i] = '\0';
 		i++;
 	}
 	return (dst);

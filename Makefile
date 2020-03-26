@@ -10,9 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(shell find . -name '*.c')
+SRCS	= $(shell find . -name '*.c' | grep -v lst)
 
-OBJS	= ${SRCS:.c=.o}
+A_SRCS	= $(shell find . -name '*.c')
+
+OBJS	= $(SRCS:.c=.o)
+
+A_OBJS	= $(A_SRCS:.c=.o)
 
 NAME	= libft.a
 
@@ -28,17 +32,20 @@ endif
 
 all:		$(NAME)
 
-$(NAME):	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+$(NAME):	$(OBJS)
+			ar rcs $(NAME) $(OBJS)
+
+bonus:		$(A_OBJS)
+			ar rcs $(NAME) $(A_OBJS)
 
 %.o:		%.c
-			${CC} ${CFLAGS} -c $< -o $@
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			${RM} ${OBJS}
+			$(RM) $(A_OBJS)
 
 fclean:		clean
-			${RM} ${NAME}
+			$(RM) $(NAME)
 
 re:			fclean all
 
