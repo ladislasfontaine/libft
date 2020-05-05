@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:03:58 by lafontai          #+#    #+#             */
-/*   Updated: 2020/04/27 17:03:59 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/05/05 16:09:16 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	d = (char *)dst;
 	s = (char *)src;
 	i = 0;
+	if (!dst && !src)
+		return (NULL);
 	if (s < d)
 	{
 		i++;
@@ -31,12 +33,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		}
 	}
 	else
-	{
 		while (i < len)
 		{
 			d[i] = s[i];
 			i++;
 		}
-	}
 	return (dst);
 }

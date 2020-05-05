@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:03:36 by lafontai          #+#    #+#             */
-/*   Updated: 2020/04/27 17:03:37 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/05/05 16:06:46 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	d = (char *)dst;
 	s = (char *)src;
 	i = 0;
+	if (!dst && !src)
+		return (NULL);
 	while (i < n)
 	{
 		d[i] = s[i];
